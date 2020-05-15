@@ -1,26 +1,24 @@
 public class Candy {
-    private String emoji;
     private int value;
+    private String emoji;
     private String name;
-    public enum Mark {X, O};
-    private Mark mark;
-    public Candy(String name, String emoji, int value, Mark mark) {
+    private int id;
+
+    public Candy (String name, String emoji, int value, int id) {
         this.name = name;
         this.emoji = emoji;
         this.value = value;
-        this.mark = mark;
-    }
-
-    public void setMark(Mark mark) {
-        this.mark = mark;
-    }
-
-    public Mark getMark() {
-        return mark;
+        this.id = id;
     }
 
     @Override
     public String toString() {
         return this.emoji;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        Candy c = (Candy) obj;
+        return this.id == c.id;
     }
 }
